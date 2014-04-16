@@ -45,24 +45,24 @@ set cpo&vim
 
 " ---------------------------------------------------------------------
 "  Map Interface: {{{2
-if !hasmapto('<Plug>SaveWinPosn')
- map <unique> <Leader>swp <Plug>SaveWinPosn
-endif
-if !hasmapto('<Plug>RestoreWinPosn')
- map <unique> <Leader>rwp <Plug>RestoreWinPosn
-endif
-nmap <silent> <Plug>SaveWinPosn		:call SaveWinPosn()<CR>
-nmap <silent> <Plug>RestoreWinPosn	:call RestoreWinPosn()<CR>
+" if !hasmapto('<Plug>SaveWinPosn')
+"  map <unique> <Leader>swp <Plug>SaveWinPosn
+" endif
+" if !hasmapto('<Plug>RestoreWinPosn')
+"  map <unique> <Leader>rwp <Plug>RestoreWinPosn
+" endif
+" nmap <silent> <Plug>SaveWinPosn		:call SaveWinPosn()<CR>
+" nmap <silent> <Plug>RestoreWinPosn	:call RestoreWinPosn()<CR>
 
 " ---------------------------------------------------------------------
 " Command Interface: {{{2
-com! -bar -nargs=0 SWP	call SaveWinPosn()
-com! -bar -nargs=? RWP	call RestoreWinPosn(<args>)
-com! -bar -nargs=1 SM	call SaveMark(<q-args>)
-com! -bar -nargs=1 RM	call RestoreMark(<q-args>)
-com! -bar -nargs=1 DM	call DestroyMark(<q-args>)
+" com! -bar -nargs=0 SWP	call SaveWinPosn()
+" com! -bar -nargs=? RWP	call RestoreWinPosn(<args>)
+" com! -bar -nargs=1 SM	call SaveMark(<q-args>)
+" com! -bar -nargs=1 RM	call RestoreMark(<q-args>)
+" com! -bar -nargs=1 DM	call DestroyMark(<q-args>)
 
-com! -bar -nargs=1 WLR	call s:WinLineRestore(<q-args>)
+" com! -bar -nargs=1 WLR	call s:WinLineRestore(<q-args>)
 
 if v:version < 630
  let s:modifier= "sil! "
