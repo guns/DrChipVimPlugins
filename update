@@ -1,0 +1,21 @@
+#!/usr/bin/env bash
+
+PLUGIN="$1"
+
+case "$PLUGIN" in
+AnsiEsc) URL='http://www.drchip.org/astronaut/vim/vbafiles/AnsiEsc.vba.gz';;
+DrawIt) URL='http://www.drchip.org/astronaut/vim/vbafiles/DrawIt.vba.gz';;
+ManPageView) URL='http://www.drchip.org/astronaut/vim/vbafiles/manpageview.vba.gz';;
+*) echo "No such plugin." >&2; exit 1;;
+esac
+
+mkdir -p "$PLUGIN"
+
+pushd .
+cd "$PLUGIN"
+curl -L# "$URL" | gzip -cd | vim -c 'execute "UseVimball ." | quit!' -
+rm -f .VimballRecord .sw*
+popd
+
+git add "$PLUGIN"
+git commit --author 'Charles Campbell <drchip@campbellfamily.biz>' -m "Update from $URL"
