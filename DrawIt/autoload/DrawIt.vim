@@ -112,8 +112,8 @@ fun! DrawIt#DrawItStart(...)
   setl mouse=a
 
   " DrawItStart: set up DrawIt commands {{{3
-  com! -nargs=1 -range SetBrush <line1>,<line2>call DrawIt#SetBrush(<q-args>)
-  com! -count Canvas call s:Spacer(line("."),line(".") + <count> - 1,0)
+  " com! -nargs=1 -range SetBrush <line1>,<line2>call DrawIt#SetBrush(<q-args>)
+  " com! -count Canvas call s:Spacer(line("."),line(".") + <count> - 1,0)
 
   " DrawItStart: set up default drawing characters {{{3
   if !exists("b:di_vert")   |let b:di_vert    = "|" |endif
@@ -247,184 +247,184 @@ fun! DrawIt#DrawItStart(...)
 
   " DrawItStart: save and unmap user maps {{{3
   let b:lastdir    = 1
-  if exists("mapleader")
-   let usermaplead  = mapleader
-  else
-   let usermaplead  = "\\"
-  endif
-  call SaveUserMaps("bn","","><^v","DrawIt")
-  call SaveUserMaps("bv",usermaplead,"abceflsy","DrawIt")
-  call SaveUserMaps("bn","","<c-v>","DrawIt")
-  call SaveUserMaps("bn",usermaplead,"h><v^","DrawIt")
-  call SaveUserMaps("bn","","<left>","DrawIt")
-  call SaveUserMaps("bn","","<right>","DrawIt")
-  call SaveUserMaps("bn","","<up>","DrawIt")
-  call SaveUserMaps("bn","","<down>","DrawIt")
-  call SaveUserMaps("bn","","<left>","DrawIt")
-  call SaveUserMaps("bn","","<s-right>","DrawIt")
-  call SaveUserMaps("bn","","<s-up>","DrawIt")
-  call SaveUserMaps("bn","","<s-down>","DrawIt")
-  call SaveUserMaps("bn","","<space>","DrawIt")
-  call SaveUserMaps("bn","","<home>","DrawIt")
-  call SaveUserMaps("bn","","<end>","DrawIt")
-  call SaveUserMaps("bn","","<pageup>","DrawIt")
-  call SaveUserMaps("bn","","<pagedown>","DrawIt")
-  call SaveUserMaps("bn","","<c-leftdrag>","DrawIt")
-  call SaveUserMaps("bn","","<c-leftmouse>","DrawIt")
-  call SaveUserMaps("bn","","<c-leftrelease>","DrawIt")
-  call SaveUserMaps("bn","","<leftdrag>","DrawIt")
-  call SaveUserMaps("bn","","<leftmouse>","DrawIt")
-  call SaveUserMaps("bn","","<middlemouse>","DrawIt")
-  call SaveUserMaps("bn","","<rightmouse>","DrawIt")
-  call SaveUserMaps("bn","","<s-leftdrag>","DrawIt")
-  call SaveUserMaps("bn","","<s-leftmouse>","DrawIt")
-  call SaveUserMaps("bn","","<s-leftrelease>","DrawIt")
-  call SaveUserMaps("bv","","<c-leftmouse>","DrawIt")
-  call SaveUserMaps("bv","","<leftmouse>","DrawIt")
-  call SaveUserMaps("bv","","<middlemouse>","DrawIt")
-  call SaveUserMaps("bv","","<rightmouse>","DrawIt")
-  call SaveUserMaps("bv","","<s-leftmouse>","DrawIt")
-  call SaveUserMaps("bn",usermaplead,":pa","DrawIt")
-  call SaveUserMaps("bn",usermaplead,":pb","DrawIt")
-  call SaveUserMaps("bn",usermaplead,":pc","DrawIt")
-  call SaveUserMaps("bn",usermaplead,":pd","DrawIt")
-  call SaveUserMaps("bn",usermaplead,":pe","DrawIt")
-  call SaveUserMaps("bn",usermaplead,":pf","DrawIt")
-  call SaveUserMaps("bn",usermaplead,":pg","DrawIt")
-  call SaveUserMaps("bn",usermaplead,":ph","DrawIt")
-  call SaveUserMaps("bn",usermaplead,":pi","DrawIt")
-  call SaveUserMaps("bn",usermaplead,":pj","DrawIt")
-  call SaveUserMaps("bn",usermaplead,":pk","DrawIt")
-  call SaveUserMaps("bn",usermaplead,":pl","DrawIt")
-  call SaveUserMaps("bn",usermaplead,":pm","DrawIt")
-  call SaveUserMaps("bn",usermaplead,":pn","DrawIt")
-  call SaveUserMaps("bn",usermaplead,":po","DrawIt")
-  call SaveUserMaps("bn",usermaplead,":pp","DrawIt")
-  call SaveUserMaps("bn",usermaplead,":pq","DrawIt")
-  call SaveUserMaps("bn",usermaplead,":pr","DrawIt")
-  call SaveUserMaps("bn",usermaplead,":ps","DrawIt")
-  call SaveUserMaps("bn",usermaplead,":pt","DrawIt")
-  call SaveUserMaps("bn",usermaplead,":pu","DrawIt")
-  call SaveUserMaps("bn",usermaplead,":pv","DrawIt")
-  call SaveUserMaps("bn",usermaplead,":pw","DrawIt")
-  call SaveUserMaps("bn",usermaplead,":px","DrawIt")
-  call SaveUserMaps("bn",usermaplead,":py","DrawIt")
-  call SaveUserMaps("bn",usermaplead,":pz","DrawIt")
-  call SaveUserMaps("bn",usermaplead,":ra","DrawIt")
-  call SaveUserMaps("bn",usermaplead,":rb","DrawIt")
-  call SaveUserMaps("bn",usermaplead,":rc","DrawIt")
-  call SaveUserMaps("bn",usermaplead,":rd","DrawIt")
-  call SaveUserMaps("bn",usermaplead,":re","DrawIt")
-  call SaveUserMaps("bn",usermaplead,":rf","DrawIt")
-  call SaveUserMaps("bn",usermaplead,":rg","DrawIt")
-  call SaveUserMaps("bn",usermaplead,":rh","DrawIt")
-  call SaveUserMaps("bn",usermaplead,":ri","DrawIt")
-  call SaveUserMaps("bn",usermaplead,":rj","DrawIt")
-  call SaveUserMaps("bn",usermaplead,":rk","DrawIt")
-  call SaveUserMaps("bn",usermaplead,":rl","DrawIt")
-  call SaveUserMaps("bn",usermaplead,":rm","DrawIt")
-  call SaveUserMaps("bn",usermaplead,":rn","DrawIt")
-  call SaveUserMaps("bn",usermaplead,":ro","DrawIt")
-  call SaveUserMaps("bn",usermaplead,":rp","DrawIt")
-  call SaveUserMaps("bn",usermaplead,":rq","DrawIt")
-  call SaveUserMaps("bn",usermaplead,":rr","DrawIt")
-  call SaveUserMaps("bn",usermaplead,":rs","DrawIt")
-  call SaveUserMaps("bn",usermaplead,":rt","DrawIt")
-  call SaveUserMaps("bn",usermaplead,":ru","DrawIt")
-  call SaveUserMaps("bn",usermaplead,":rv","DrawIt")
-  call SaveUserMaps("bn",usermaplead,":rw","DrawIt")
-  call SaveUserMaps("bn",usermaplead,":rx","DrawIt")
-  call SaveUserMaps("bn",usermaplead,":ry","DrawIt")
-  call SaveUserMaps("bn",usermaplead,":rz","DrawIt")
-  if exists("g:drawit_insertmode") && g:drawit_insertmode
-   call SaveUserMaps("bi","","<left>","DrawIt")
-   call SaveUserMaps("bi","","<right>","DrawIt")
-   call SaveUserMaps("bi","","<up>","DrawIt")
-   call SaveUserMaps("bi","","<down>","DrawIt")
-   call SaveUserMaps("bi","","<left>","DrawIt")
-   call SaveUserMaps("bi","","<s-right>","DrawIt")
-   call SaveUserMaps("bi","","<s-up>","DrawIt")
-   call SaveUserMaps("bi","","<s-down>","DrawIt")
-   call SaveUserMaps("bi","","<home>","DrawIt")
-   call SaveUserMaps("bi","","<end>","DrawIt")
-   call SaveUserMaps("bi","","<pageup>","DrawIt")
-   call SaveUserMaps("bi","","<pagedown>","DrawIt")
-   call SaveUserMaps("bi","","<leftmouse>","DrawIt")
-  endif
-  call SaveUserMaps("bn","",":\<c-v>","DrawIt")
+  " if exists("mapleader")
+  "  let usermaplead  = mapleader
+  " else
+  "  let usermaplead  = "\\"
+  " endif
+  " call SaveUserMaps("bn","","><^v","DrawIt")
+  " call SaveUserMaps("bv",usermaplead,"abceflsy","DrawIt")
+  " call SaveUserMaps("bn","","<c-v>","DrawIt")
+  " call SaveUserMaps("bn",usermaplead,"h><v^","DrawIt")
+  " call SaveUserMaps("bn","","<left>","DrawIt")
+  " call SaveUserMaps("bn","","<right>","DrawIt")
+  " call SaveUserMaps("bn","","<up>","DrawIt")
+  " call SaveUserMaps("bn","","<down>","DrawIt")
+  " call SaveUserMaps("bn","","<left>","DrawIt")
+  " call SaveUserMaps("bn","","<s-right>","DrawIt")
+  " call SaveUserMaps("bn","","<s-up>","DrawIt")
+  " call SaveUserMaps("bn","","<s-down>","DrawIt")
+  " call SaveUserMaps("bn","","<space>","DrawIt")
+  " call SaveUserMaps("bn","","<home>","DrawIt")
+  " call SaveUserMaps("bn","","<end>","DrawIt")
+  " call SaveUserMaps("bn","","<pageup>","DrawIt")
+  " call SaveUserMaps("bn","","<pagedown>","DrawIt")
+  " call SaveUserMaps("bn","","<c-leftdrag>","DrawIt")
+  " call SaveUserMaps("bn","","<c-leftmouse>","DrawIt")
+  " call SaveUserMaps("bn","","<c-leftrelease>","DrawIt")
+  " call SaveUserMaps("bn","","<leftdrag>","DrawIt")
+  " call SaveUserMaps("bn","","<leftmouse>","DrawIt")
+  " call SaveUserMaps("bn","","<middlemouse>","DrawIt")
+  " call SaveUserMaps("bn","","<rightmouse>","DrawIt")
+  " call SaveUserMaps("bn","","<s-leftdrag>","DrawIt")
+  " call SaveUserMaps("bn","","<s-leftmouse>","DrawIt")
+  " call SaveUserMaps("bn","","<s-leftrelease>","DrawIt")
+  " call SaveUserMaps("bv","","<c-leftmouse>","DrawIt")
+  " call SaveUserMaps("bv","","<leftmouse>","DrawIt")
+  " call SaveUserMaps("bv","","<middlemouse>","DrawIt")
+  " call SaveUserMaps("bv","","<rightmouse>","DrawIt")
+  " call SaveUserMaps("bv","","<s-leftmouse>","DrawIt")
+  " call SaveUserMaps("bn",usermaplead,":pa","DrawIt")
+  " call SaveUserMaps("bn",usermaplead,":pb","DrawIt")
+  " call SaveUserMaps("bn",usermaplead,":pc","DrawIt")
+  " call SaveUserMaps("bn",usermaplead,":pd","DrawIt")
+  " call SaveUserMaps("bn",usermaplead,":pe","DrawIt")
+  " call SaveUserMaps("bn",usermaplead,":pf","DrawIt")
+  " call SaveUserMaps("bn",usermaplead,":pg","DrawIt")
+  " call SaveUserMaps("bn",usermaplead,":ph","DrawIt")
+  " call SaveUserMaps("bn",usermaplead,":pi","DrawIt")
+  " call SaveUserMaps("bn",usermaplead,":pj","DrawIt")
+  " call SaveUserMaps("bn",usermaplead,":pk","DrawIt")
+  " call SaveUserMaps("bn",usermaplead,":pl","DrawIt")
+  " call SaveUserMaps("bn",usermaplead,":pm","DrawIt")
+  " call SaveUserMaps("bn",usermaplead,":pn","DrawIt")
+  " call SaveUserMaps("bn",usermaplead,":po","DrawIt")
+  " call SaveUserMaps("bn",usermaplead,":pp","DrawIt")
+  " call SaveUserMaps("bn",usermaplead,":pq","DrawIt")
+  " call SaveUserMaps("bn",usermaplead,":pr","DrawIt")
+  " call SaveUserMaps("bn",usermaplead,":ps","DrawIt")
+  " call SaveUserMaps("bn",usermaplead,":pt","DrawIt")
+  " call SaveUserMaps("bn",usermaplead,":pu","DrawIt")
+  " call SaveUserMaps("bn",usermaplead,":pv","DrawIt")
+  " call SaveUserMaps("bn",usermaplead,":pw","DrawIt")
+  " call SaveUserMaps("bn",usermaplead,":px","DrawIt")
+  " call SaveUserMaps("bn",usermaplead,":py","DrawIt")
+  " call SaveUserMaps("bn",usermaplead,":pz","DrawIt")
+  " call SaveUserMaps("bn",usermaplead,":ra","DrawIt")
+  " call SaveUserMaps("bn",usermaplead,":rb","DrawIt")
+  " call SaveUserMaps("bn",usermaplead,":rc","DrawIt")
+  " call SaveUserMaps("bn",usermaplead,":rd","DrawIt")
+  " call SaveUserMaps("bn",usermaplead,":re","DrawIt")
+  " call SaveUserMaps("bn",usermaplead,":rf","DrawIt")
+  " call SaveUserMaps("bn",usermaplead,":rg","DrawIt")
+  " call SaveUserMaps("bn",usermaplead,":rh","DrawIt")
+  " call SaveUserMaps("bn",usermaplead,":ri","DrawIt")
+  " call SaveUserMaps("bn",usermaplead,":rj","DrawIt")
+  " call SaveUserMaps("bn",usermaplead,":rk","DrawIt")
+  " call SaveUserMaps("bn",usermaplead,":rl","DrawIt")
+  " call SaveUserMaps("bn",usermaplead,":rm","DrawIt")
+  " call SaveUserMaps("bn",usermaplead,":rn","DrawIt")
+  " call SaveUserMaps("bn",usermaplead,":ro","DrawIt")
+  " call SaveUserMaps("bn",usermaplead,":rp","DrawIt")
+  " call SaveUserMaps("bn",usermaplead,":rq","DrawIt")
+  " call SaveUserMaps("bn",usermaplead,":rr","DrawIt")
+  " call SaveUserMaps("bn",usermaplead,":rs","DrawIt")
+  " call SaveUserMaps("bn",usermaplead,":rt","DrawIt")
+  " call SaveUserMaps("bn",usermaplead,":ru","DrawIt")
+  " call SaveUserMaps("bn",usermaplead,":rv","DrawIt")
+  " call SaveUserMaps("bn",usermaplead,":rw","DrawIt")
+  " call SaveUserMaps("bn",usermaplead,":rx","DrawIt")
+  " call SaveUserMaps("bn",usermaplead,":ry","DrawIt")
+  " call SaveUserMaps("bn",usermaplead,":rz","DrawIt")
+  " if exists("g:drawit_insertmode") && g:drawit_insertmode
+  "  call SaveUserMaps("bi","","<left>","DrawIt")
+  "  call SaveUserMaps("bi","","<right>","DrawIt")
+  "  call SaveUserMaps("bi","","<up>","DrawIt")
+  "  call SaveUserMaps("bi","","<down>","DrawIt")
+  "  call SaveUserMaps("bi","","<left>","DrawIt")
+  "  call SaveUserMaps("bi","","<s-right>","DrawIt")
+  "  call SaveUserMaps("bi","","<s-up>","DrawIt")
+  "  call SaveUserMaps("bi","","<s-down>","DrawIt")
+  "  call SaveUserMaps("bi","","<home>","DrawIt")
+  "  call SaveUserMaps("bi","","<end>","DrawIt")
+  "  call SaveUserMaps("bi","","<pageup>","DrawIt")
+  "  call SaveUserMaps("bi","","<pagedown>","DrawIt")
+  "  call SaveUserMaps("bi","","<leftmouse>","DrawIt")
+  " endif
+  " call SaveUserMaps("bn","",":\<c-v>","DrawIt")
 
   " DrawItStart: DrawIt maps (Charles Campbell) {{{3
-  nmap <silent> <buffer> <script> <left>		:set lz<CR>:silent! call <SID>DrawLeft()<CR>:set nolz<CR>
-  nmap <silent> <buffer> <script> <right>		:set lz<CR>:silent! call <SID>DrawRight()<CR>:set nolz<CR>
-  nmap <silent> <buffer> <script> <up>			:set lz<CR>:silent! call <SID>DrawUp()<CR>:set nolz<CR>
-  nmap <silent> <buffer> <script> <down>		:set lz<CR>:silent! call <SID>DrawDown()<CR>:set nolz<CR>
-  nmap <silent> <buffer> <script> <s-left>		:set lz<CR>:silent! call <SID>MoveLeft()<CR>:set nolz<CR>
-  nmap <silent> <buffer> <script> <s-right>		:set lz<CR>:silent! call <SID>MoveRight()<CR>:set nolz<CR>
-  nmap <silent> <buffer> <script> <s-up>		:set lz<CR>:silent! call <SID>MoveUp()<CR>:set nolz<CR>
-  nmap <silent> <buffer> <script> <s-down>		:set lz<CR>:silent! call <SID>MoveDown()<CR>:set nolz<CR>
-  nmap <silent> <buffer> <script> <space>		:set lz<CR>:silent! call <SID>DrawErase()<CR>:set nolz<CR>
-  nmap <silent> <buffer> <script> >				:set lz<CR>:silent! call <SID>DrawSpace('>',1)<CR>:set nolz<CR>
-  nmap <silent> <buffer> <script> <				:set lz<CR>:silent! call <SID>DrawSpace('<',2)<CR>:set nolz<CR>
-  nmap <silent> <buffer> <script> ^				:set lz<CR>:silent! call <SID>DrawSpace('^',3)<CR>:set nolz<CR>
-  nmap <silent> <buffer> <script> v				:set lz<CR>:silent! call <SID>DrawSpace('v',4)<CR>:set nolz<CR>
-  nmap <silent> <buffer> <script> <home>		:set lz<CR>:silent! call <SID>DrawSlantUpLeft()<CR>:set nolz<CR>
-  nmap <silent> <buffer> <script> <end>			:set lz<CR>:silent! call <SID>DrawSlantDownLeft()<CR>:set nolz<CR>
-  nmap <silent> <buffer> <script> <pageup>		:set lz<CR>:silent! call <SID>DrawSlantUpRight()<CR>:set nolz<CR>
-  nmap <silent> <buffer> <script> <pagedown>	:set lz<CR>:silent! call <SID>DrawSlantDownRight()<CR>:set nolz<CR>
-  nmap <silent> <buffer> <script> <Leader>>		:set lz<CR>:silent! call <SID>DrawFatRArrow()<CR>:set nolz<CR>
-  nmap <silent> <buffer> <script> <Leader><		:set lz<CR>:silent! call <SID>DrawFatLArrow()<CR>:set nolz<CR>
-  nmap <silent> <buffer> <script> <Leader>^		:set lz<CR>:silent! call <SID>DrawFatUArrow()<CR>:set nolz<CR>
-  nmap <silent> <buffer> <script> <Leader>v		:set lz<CR>:silent! call <SID>DrawFatDArrow()<CR>:set nolz<CR>
-  nmap <silent> <buffer> <script> <Leader>f		:call <SID>Flood()<cr>
+  nmap <silent> <buffer> <script> H                    :silent! call <SID>DrawLeft()<CR>
+  nmap <silent> <buffer> <script> L                    :silent! call <SID>DrawRight()<CR>
+  nmap <silent> <buffer> <script> K                    :silent! call <SID>DrawUp()<CR>
+  nmap <silent> <buffer> <script> J                    :silent! call <SID>DrawDown()<CR>
+  nmap <silent> <buffer> <script> <left>               :silent! call <SID>MoveLeft()<CR>
+  nmap <silent> <buffer> <script> <right>              :silent! call <SID>MoveRight()<CR>
+  nmap <silent> <buffer> <script> <up>                 :silent! call <SID>MoveUp()<CR>
+  nmap <silent> <buffer> <script> <down>               :silent! call <SID>MoveDown()<CR>
+  nmap <silent> <buffer> <script> <LocalLeader><space> :silent! call <SID>DrawErase()<CR>
+  nmap <silent> <buffer> <script> <LocalLeader><M-L>   :silent! call <SID>DrawSpace('▷',1)<CR>
+  nmap <silent> <buffer> <script> <LocalLeader><M-H>   :silent! call <SID>DrawSpace('◁',2)<CR>
+  nmap <silent> <buffer> <script> <LocalLeader><M-K>   :silent! call <SID>DrawSpace('△',3)<CR>
+  nmap <silent> <buffer> <script> <LocalLeader><M-J>   :silent! call <SID>DrawSpace('▽',4)<CR>
+  " nmap <silent> <buffer> <script> <home>		:set lz<CR>:silent! call <SID>DrawSlantUpLeft()<CR>:set nolz<CR>
+  " nmap <silent> <buffer> <script> <end>			:set lz<CR>:silent! call <SID>DrawSlantDownLeft()<CR>:set nolz<CR>
+  " nmap <silent> <buffer> <script> <pageup>		:set lz<CR>:silent! call <SID>DrawSlantUpRight()<CR>:set nolz<CR>
+  " nmap <silent> <buffer> <script> <pagedown>	:set lz<CR>:silent! call <SID>DrawSlantDownRight()<CR>:set nolz<CR>
+  nmap <silent> <buffer> <script> <LocalLeader>L       :silent! call <SID>DrawFatRArrow()<CR>
+  nmap <silent> <buffer> <script> <LocalLeader>H       :silent! call <SID>DrawFatLArrow()<CR>
+  nmap <silent> <buffer> <script> <LocalLeader>K       :silent! call <SID>DrawFatUArrow()<CR>
+  nmap <silent> <buffer> <script> <LocalLeader>J       :silent! call <SID>DrawFatDArrow()<CR>
+  nmap <silent> <buffer> <script> <LocalLeader>f       :call <SID>Flood()<cr>
 
   " DrawItStart: Set up insertmode maps {{{3
-  if exists("g:drawit_insertmode") && g:drawit_insertmode
-   imap <silent> <buffer> <script> <left>     <Esc><left>a
-   imap <silent> <buffer> <script> <right>    <Esc><right>a
-   imap <silent> <buffer> <script> <up>       <Esc><up>a
-   imap <silent> <buffer> <script> <down>     <Esc><down>a
-   imap <silent> <buffer> <script> <left>     <Esc><left>a
-   imap <silent> <buffer> <script> <s-right>  <Esc><s-right>a
-   imap <silent> <buffer> <script> <s-up>     <Esc><s-up>a
-   imap <silent> <buffer> <script> <s-down>   <Esc><s-down>a
-   imap <silent> <buffer> <script> <home>     <Esc><home>a
-   imap <silent> <buffer> <script> <end>      <Esc><end>a
-   imap <silent> <buffer> <script> <pageup>   <Esc><pageup>a
-   imap <silent> <buffer> <script> <pagedown> <Esc><pagedown>a
-  endif
+  " if exists("g:drawit_insertmode") && g:drawit_insertmode
+  "  imap <silent> <buffer> <script> <left>     <Esc><left>a
+  "  imap <silent> <buffer> <script> <right>    <Esc><right>a
+  "  imap <silent> <buffer> <script> <up>       <Esc><up>a
+  "  imap <silent> <buffer> <script> <down>     <Esc><down>a
+  "  imap <silent> <buffer> <script> <left>     <Esc><left>a
+  "  imap <silent> <buffer> <script> <s-right>  <Esc><s-right>a
+  "  imap <silent> <buffer> <script> <s-up>     <Esc><s-up>a
+  "  imap <silent> <buffer> <script> <s-down>   <Esc><s-down>a
+  "  imap <silent> <buffer> <script> <home>     <Esc><home>a
+  "  imap <silent> <buffer> <script> <end>      <Esc><end>a
+  "  imap <silent> <buffer> <script> <pageup>   <Esc><pageup>a
+  "  imap <silent> <buffer> <script> <pagedown> <Esc><pagedown>a
+  " endif
 
   " DrawItStart: set up drawing mode mappings (Sylvain Viart) {{{3
-  nnoremap <silent> <buffer> <script> <c-v>      :call <SID>LeftStart()<CR><c-v>
-  vmap     <silent> <buffer> <script> <Leader>a  :<c-u>call <SID>CallBox('Arrow')<CR>
-  vmap     <silent> <buffer> <script> <Leader>b  :<c-u>call <SID>CallBox('DrawBox')<cr>
-  nmap              <buffer> <script> <Leader>c  :call <SID>Canvas()<cr>
-  vmap     <silent> <buffer> <script> <Leader>l  :<c-u>call <SID>CallBox('DrawPlainLine')<CR>
-  vmap     <silent> <buffer> <script> <Leader>s  :<c-u>call <SID>Spacer(line("'<"), line("'>"),0)<cr>
+  " nnoremap <silent> <buffer> <script> <c-v>      :call <SID>LeftStart()<CR><c-v>
+  vmap     <silent> <buffer> <script> <LocalLeader>a :<c-u>call <SID>CallBox('Arrow')<CR>
+  vmap     <silent> <buffer> <script> <LocalLeader>b :<c-u>call <SID>CallBox('DrawBox')<cr>
+  " nmap              <buffer> <script> <Leader>c  :call <SID>Canvas()<cr>
+  vmap     <silent> <buffer> <script> <LocalLeader>l :<c-u>call <SID>CallBox('DrawPlainLine')<CR>
+  vmap     <silent> <buffer> <script> <LocalLeader>s :<c-u>call <SID>Spacer(line("'<"), line("'>"),0)<cr>
 
   " DrawItStart: set up drawing mode mappings (Charles Campbell) {{{3
   " \pa ... \pz : blanks are transparent
   " \ra ... \rz : blanks copy over
-  vmap <buffer> <silent> <Leader>e   :<c-u>call <SID>CallBox('DrawEllipse')<CR>
+  vmap <buffer> <silent> <LocalLeader>e   :<c-u>call <SID>CallBox('DrawEllipse')<CR>
   
-  let allreg= "abcdefghijklmnopqrstuvwxyz"
-  while strlen(allreg) > 0
-   let ireg= strpart(allreg,0,1)
-   exe "nmap <silent> <buffer> <Leader>p".ireg.'  :<c-u>set lz<cr>:silent! call <SID>PutBlock("'.ireg.'",0)<cr>:set nolz<cr>'
-   exe "nmap <silent> <buffer> <Leader>r".ireg.'  :<c-u>set lz<cr>:silent! call <SID>PutBlock("'.ireg.'",1)<cr>:set nolz<cr>'
-   let allreg= strpart(allreg,1)
-  endwhile
+  " let allreg= "abcdefghijklmnopqrstuvwxyz"
+  " while strlen(allreg) > 0
+  "  let ireg= strpart(allreg,0,1)
+  "  exe "nmap <silent> <buffer> <LocalLeader>p".ireg.'  :<c-u>:silent! call <SID>PutBlock("'.ireg.'",0)<cr>'
+  "  exe "nmap <silent> <buffer> <LocalLeader>r".ireg.'  :<c-u>:silent! call <SID>PutBlock("'.ireg.'",1)<cr>'
+  "  let allreg= strpart(allreg,1)
+  " endwhile
 
   " DrawItStart: mouse maps  (Sylvain Viart) {{{3
   " start visual-block with leftmouse
-  nnoremap <silent> <buffer> <script> <leftmouse>    <leftmouse>:call <SID>LeftStart()<CR><c-v>
-  vnoremap <silent> <buffer> <script> <rightmouse>   <leftmouse>:<c-u>call <SID>RightStart(1)<cr>
-  vnoremap <silent> <buffer> <script> <middlemouse>  <leftmouse>:<c-u>call <SID>RightStart(0)<cr>
-  vnoremap <silent> <buffer> <script> <c-leftmouse>  <leftmouse>:<c-u>call <SID>CLeftStart()<cr>
+  " nnoremap <silent> <buffer> <script> <leftmouse>    <leftmouse>:call <SID>LeftStart()<CR><c-v>
+  " vnoremap <silent> <buffer> <script> <rightmouse>   <leftmouse>:<c-u>call <SID>RightStart(1)<cr>
+  " vnoremap <silent> <buffer> <script> <middlemouse>  <leftmouse>:<c-u>call <SID>RightStart(0)<cr>
+  " vnoremap <silent> <buffer> <script> <c-leftmouse>  <leftmouse>:<c-u>call <SID>CLeftStart()<cr>
 
   " DrawItStart: mouse maps (Charles Campbell) {{{3
   " Draw with current brush
-  nnoremap <silent> <buffer> <script> <s-leftmouse>  <leftmouse>:call <SID>SLeftStart()<CR><c-v>
-  nnoremap <silent> <buffer> <script> <c-leftmouse>  <leftmouse>:call <SID>CLeftStart()<CR><c-v>
+  " nnoremap <silent> <buffer> <script> <s-leftmouse>  <leftmouse>:call <SID>SLeftStart()<CR><c-v>
+  " nnoremap <silent> <buffer> <script> <c-leftmouse>  <leftmouse>:call <SID>CLeftStart()<CR><c-v>
 
  " DrawItStart: Menu support {{{3
  if has("gui_running") && has("menu") && &go =~# 'm'
@@ -441,14 +441,14 @@ fun! DrawIt#DrawItStart(...)
  endif
  
  " DrawIt Commands: {{{3
-com! -nargs=0 -range	DIarrow		call s:CallBox('Arrow')
-com! -nargs=0 -range	DIbox		call s:CallBox('DrawBox')
-com! -nargs=0 -range	DIcanvas	call s:Canvas()
-com! -nargs=0 -range	DIellipse	call s:CallBox('DrawEllipse')
-com! -nargs=0 -range	DIcircle	call s:CallBox('DrawEllipse')
-com! -nargs=0 -range	DIflood     call s:Flood()
-com! -nargs=0 -range	DIline      call s:CallBox('DrawPlainLine')
-com! -nargs=0 -range	DIspacer	call s:Spacer(line("'<"), line("'>"),0)
+" com! -nargs=0 -range	DIarrow		call s:CallBox('Arrow')
+" com! -nargs=0 -range	DIbox		call s:CallBox('DrawBox')
+" com! -nargs=0 -range	DIcanvas	call s:Canvas()
+" com! -nargs=0 -range	DIellipse	call s:CallBox('DrawEllipse')
+" com! -nargs=0 -range	DIcircle	call s:CallBox('DrawEllipse')
+" com! -nargs=0 -range	DIflood     call s:Flood()
+" com! -nargs=0 -range	DIline      call s:CallBox('DrawPlainLine')
+" com! -nargs=0 -range	DIspacer	call s:Spacer(line("'<"), line("'>"),0)
 " call Dret("DrawItStart")
 endfun
 
@@ -481,7 +481,7 @@ fun! DrawIt#DrawItStop()
   endif
 
   " DrawItStop: remove drawit commands {{{3
-  delc SetBrush
+  " delc SetBrush
 
   " DrawItStop: insure that erase mode is off {{{3
   " (thanks go to Gary Johnson for this)
@@ -580,6 +580,17 @@ endfun
 " DrawIt#SetMode: sets normal, single, double drawing mode, and ensures that DrawIt mode is on {{{2
 fun! DrawIt#SetMode(mode)
 "  call Dfunc("DrawIt#SetMode(mode=".a:mode.")")
+
+  if a:mode == 'dashed'
+   call DrawIt#SetMode('S')
+   let b:di_custom_mode = 1
+   let b:di_Shoriz = '┄'
+   let b:di_Svert = '┊'
+   return
+  elseif exists('b:di_custom_mode')
+   unlet! b:di_custom_mode b:di_Shoriz b:di_Svert
+  endif
+
   if &enc == 'utf-8' || &enc == 'cp437' || &enc == 'utf-16' || &enc == 'ucs-4'
    let b:di_gfxchr= 1
   else
@@ -2728,16 +2739,16 @@ fun! s:Arrow(x0, y0, x1, y1)
   if s:Abs(dx) > <SID>Abs(dy)
      " move x
      if dx > 0
-        call s:SetCharAt('>', a:x1, a:y1)
+        call s:SetCharAt('▶', a:x1, a:y1)
      else
-        call s:SetCharAt('<', a:x1, a:y1)
+        call s:SetCharAt('◀', a:x1, a:y1)
      endif
   else
      " move y
      if dy > 0
-        call s:SetCharAt('v', a:x1, a:y1)
+        call s:SetCharAt('▼', a:x1, a:y1)
      else
-        call s:SetCharAt('^', a:x1, a:y1)
+        call s:SetCharAt('▲', a:x1, a:y1)
      endif
   endif
 
@@ -2760,7 +2771,8 @@ fun! s:DrawPlainLine(x0,y0,x1,y1)
 "  call Dfunc("s:DrawPlainLine(xy0[".a:x0.",".a:y0."] xy1[".a:x1.",".a:y1."])")
 
 "   call Decho("exe call s:DrawLine(".a:x0.','.a:y0.','.a:x1.','.a:y1.',"_")')
-   exe "call s:DrawLine(".a:x0.','.a:y0.','.a:x1.','.a:y1.',"_")'
+   let horiz = (g:drawit_mode == 'N')? b:di_horiz : ((g:drawit_mode == 'S')? b:di_Shoriz : b:di_Dhoriz)
+   exe "call s:DrawLine(".a:x0.','.a:y0.','.a:x1.','.a:y1.',"'.horiz.'")'
 
 "  call Dret("s:DrawPlainLine")
 endf
@@ -2776,7 +2788,7 @@ fun! s:LeftStart()
 "  call Dfunc("s:LeftStart()")
   let b:xmouse_start = virtcol('.')
   let b:ymouse_start = line('.')
-  vnoremap <silent> <buffer> <script> <leftrelease> <leftrelease>:<c-u>call <SID>LeftRelease()<cr>gv
+  " vnoremap <silent> <buffer> <script> <leftrelease> <leftrelease>:<c-u>call <SID>LeftRelease()<cr>gv
 "  call Dret("s:LeftStart : [".b:ymouse_start.",".b:xmouse_start."]")
 endf!
 
@@ -2784,7 +2796,7 @@ endf!
 " s:LeftRelease: {{{2
 fun! s:LeftRelease()
 "  call Dfunc("s:LeftRelease()")
-  vunmap <buffer> <leftrelease>
+  " vunmap <buffer> <leftrelease>
 "  call Dret("s:LeftRelease : [".line('.').','.virtcol('.').']')
 endf
 
@@ -2795,8 +2807,8 @@ fun! s:SLeftStart()
    let b:drawit_brush= "a"
   endif
 "  call Dfunc("s:SLeftStart() brush=".b:drawit_brush.' ['.line('.').','.virtcol('.').']')
-  noremap <silent> <buffer> <script> <s-leftdrag>    <leftmouse>:<c-u>call <SID>SLeftDrag()<cr>
-  noremap <silent> <buffer> <script> <s-leftrelease> <leftmouse>:<c-u>call <SID>SLeftRelease()<cr>
+  " noremap <silent> <buffer> <script> <s-leftdrag>    <leftmouse>:<c-u>call <SID>SLeftDrag()<cr>
+  " noremap <silent> <buffer> <script> <s-leftrelease> <leftmouse>:<c-u>call <SID>SLeftRelease()<cr>
 "  call Dret("s:SLeftStart")
 endfun
 
@@ -2815,8 +2827,8 @@ endfun
 fun! s:SLeftRelease()
 "  call Dfunc("s:SLeftRelease() brush=".b:drawit_brush.' ['.line('.').','.virtcol('.').']')
   call s:SLeftDrag()
-  nunmap <buffer> <s-leftdrag>
-  nunmap <buffer> <s-leftrelease>
+  " nunmap <buffer> <s-leftdrag>
+  " nunmap <buffer> <s-leftrelease>
 "  call Dret("s:SLeftRelease")
 endfun
 
@@ -2848,8 +2860,8 @@ fun! s:CLeftStart()
    unlet s:cleft_oldblock
   endif
 "  call Decho("blocksize: ".s:cleft_height."x".s:cleft_width)
-  noremap <silent> <buffer> <script> <c-leftdrag>    :<c-u>call <SID>CLeftDrag()<cr>
-  noremap <silent> <buffer> <script> <c-leftrelease> <leftmouse>:<c-u>call <SID>CLeftRelease()<cr>
+  " noremap <silent> <buffer> <script> <c-leftdrag>    :<c-u>call <SID>CLeftDrag()<cr>
+  " noremap <silent> <buffer> <script> <c-leftrelease> <leftmouse>:<c-u>call <SID>CLeftRelease()<cr>
 "  call Dret("s:CLeftStart")
 endfun
 
@@ -2901,8 +2913,8 @@ endfun
 fun! s:CLeftRelease()
 "  call Dfunc("s:CLeftRelease()")
   call s:CLeftDrag()
-  nunmap <buffer> <c-leftdrag>
-  nunmap <buffer> <c-leftrelease>
+  " nunmap <buffer> <c-leftdrag>
+  " nunmap <buffer> <c-leftrelease>
   unlet s:cleft_oldblock s:cleft_height s:cleft_width
 "  call Dret("s:CLeftRelease")
 endfun
